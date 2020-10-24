@@ -86,24 +86,35 @@ struct ContentView: View {
 struct ModalView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.editMode) var editMode
+    
+    @State var selectKeeperRegions:Set<String>  = UserDefaults.standard.mutableSetValue(forKey: "enabledRegions") as! Set<String>
+    @State var selectKeeperFuels:Set<String>  = UserDefaults.standard.mutableSetValue(forKey: "enabledFuels") as! Set<String>
+    
+    
     @State var Regions = ["QLD", "NSW", "VIC", "WA"]
-    @State var FuelTypes = ["U91", "U95", "U98", "E10", "Diesel", "LPG"]
+    @State var Fuels = ["U91", "U95", "U98", "E10", "Diesel", "LPG"]
     
     var body: some View {
         NavigationView {
             
             VStack {
-                List {
+                List(selection: $selectKeeperRegions) {
                     ForEach(Regions, id: \.self) { region in
-                        Text(region)
+                        Text(region).listRowBackground(Color.clear).onTapGesture {
+                            UserDefaults.standard.set($selectKeeperRegions, forKey: "enabledRegions")
+                        }
                     }
                     .onMove(perform: moveRegion)
+                    
                 }
-                List {
-                    ForEach(FuelTypes, id: \.self) { fuel in
+                List(selection: $selectKeeperFuels) {
+                    ForEach(Fuels, id: \.self) { fuel in
                         Text(fuel)
                     }
                     .onMove(perform: moveFuel)
+                    .onTapGesture {
+                        UserDefaults.standard.setValue($selectKeeperFuels, forKey: "enabledFuels")
+                    }
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -117,10 +128,10 @@ struct ModalView: View {
     }
     
     func moveRegion(from source: IndexSet, to destination: Int) {
-        FuelTypes.move(fromOffsets: source, toOffset: destination)
+        Regions.move(fromOffsets: source, toOffset: destination)
     }
     func moveFuel(from source: IndexSet, to destination: Int) {
-        FuelTypes.move(fromOffsets: source, toOffset: destination)
+        Fuels.move(fromOffsets: source, toOffset: destination)
     }
     
 }
