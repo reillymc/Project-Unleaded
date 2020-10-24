@@ -11,6 +11,8 @@ struct ContentView: View {
     @State var updated: String = ""
     @State var regionList: [Region] = []
     
+    @State private var showModal = true
+    
     var body: some View {
         NavigationView {
             ScrollView{
@@ -59,6 +61,13 @@ struct ContentView: View {
                 }
                 Text("Last Updated: \(updated)")
             }.navigationBarTitle(Text("Cheapest Fuel"))
+            .navigationBarItems(trailing:
+                                    Button(action: {
+                                        self.showModal = true
+                                    }) {
+                                        Image(systemName: "gear").imageScale(.large).foregroundColor(Color( UIColor(red: 0.84, green: 0.15, blue: 0.24, alpha: 1.00)))
+                                    }
+            )
         }
         .onAppear {
             API().getData(dummy: true) { (priceList) in
@@ -68,11 +77,53 @@ struct ContentView: View {
                 )
                 self.regionList = priceList.regions
             }
-        }
+        }.sheet(isPresented: $showModal, content: ModalView.init)
+        
     }
     
 }
 
+struct ModalView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.editMode) var editMode
+    @State var Regions = ["QLD", "NSW", "VIC", "WA"]
+    @State var FuelTypes = ["U91", "U95", "U98", "E10", "Diesel", "LPG"]
+    
+    var body: some View {
+        NavigationView {
+            
+            VStack {
+                List {
+                    ForEach(Regions, id: \.self) { region in
+                        Text(region)
+                    }
+                    .onMove(perform: moveRegion)
+                }
+                List {
+                    ForEach(FuelTypes, id: \.self) { fuel in
+                        Text(fuel)
+                    }
+                    .onMove(perform: moveFuel)
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .edgesIgnoringSafeArea(.all)
+            .navigationBarTitle(Text("Preferences"), displayMode: .inline)
+            .navigationBarItems(trailing: Button("Dismiss") {
+                presentationMode.wrappedValue.dismiss()
+            })
+            .environment(\.editMode, .constant(.active))
+        }
+    }
+    
+    func moveRegion(from source: IndexSet, to destination: Int) {
+        FuelTypes.move(fromOffsets: source, toOffset: destination)
+    }
+    func moveFuel(from source: IndexSet, to destination: Int) {
+        FuelTypes.move(fromOffsets: source, toOffset: destination)
+    }
+    
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
