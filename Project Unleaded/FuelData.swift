@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct FuelData: Codable {
     var updated: Int
@@ -35,6 +36,44 @@ struct Price: Codable, Hashable {
 extension Price: Identifiable {
     var id: String { return type }
 }
+
+enum RegionNames: CaseIterable, Hashable, Identifiable {
+    case QLD
+    case NSW
+    case VIC
+    case WA
+
+    var name: String {
+        return "\(self)".map {
+            $0.isUppercase ? " \($0)" : "\($0)" }.joined().capitalized
+    }
+    var id: RegionNames {self}
+}
+
+enum FuelNames: CaseIterable, Hashable, Identifiable {
+    case U91
+    case U95
+    case U98
+    case E10
+    case Diesel
+    case LPG
+
+    var name: String {
+        return "\(self)".map {
+            $0.isUppercase ? " \($0)" : "\($0)" }.joined().capitalized
+    }
+    var id: FuelNames {self}
+}
+
+
+
+
+final class UserData: ObservableObject  {
+    @Published var showFavoritesOnly = false
+    @Published var Fuels = ["U91", "U95", "U98", "E10", "Diesel", "LPG"]
+    @Published var Regions = ["QLD", "NSW", "VIC", "WA"]
+}
+
 
 class API {
     func getData(dummy: Bool, completion: @escaping (FuelData) -> ()) {
@@ -90,5 +129,3 @@ class API {
     }
     
 }
-
-
