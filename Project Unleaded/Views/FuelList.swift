@@ -23,7 +23,7 @@ struct FuelList: View {
                                 if (region.region == "Australia"){
                                     HeaderDetailCard(pricelist: region.prices)
                                 } else {
-                                    DetailCard(pricelist: region.prices)
+                                   // DetailCard(pricelist: region.prices)
                                 }
                             }.padding(.leading, 10)
                             
@@ -43,7 +43,7 @@ struct FuelList: View {
         )
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
-            API().getData(dummy: false) { (priceList) in
+            API().getData(dummy: true) { (priceList) in
                 let formatter = DateFormatter()
                 formatter.timeStyle = .short
                 self.updated = formatter.string(from: Date(timeIntervalSince1970: Double(priceList.updated))

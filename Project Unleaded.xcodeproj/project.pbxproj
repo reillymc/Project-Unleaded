@@ -20,6 +20,8 @@
 		282041D62543E3E800256B01 /* dummyapi.json in Resources */ = {isa = PBXBuildFile; fileRef = 282041C72543E39E00256B01 /* dummyapi.json */; };
 		2849B3CF26455B5D002A92B6 /* FuelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2849B3CE26455B5D002A92B6 /* FuelList.swift */; };
 		2849B3D126455EC9002A92B6 /* SummaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2849B3D026455EC9002A92B6 /* SummaryCard.swift */; };
+		289AB1D32709A86B00BED26C /* PrefsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289AB1D22709A86B00BED26C /* PrefsView.swift */; };
+		28F7BC0027097F65003C0E47 /* PrimaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F7BBFF27097F65003C0E47 /* PrimaryCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		282041C72543E39E00256B01 /* dummyapi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummyapi.json; sourceTree = "<group>"; };
 		2849B3CE26455B5D002A92B6 /* FuelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelList.swift; sourceTree = "<group>"; };
 		2849B3D026455EC9002A92B6 /* SummaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCard.swift; sourceTree = "<group>"; };
+		289AB1D22709A86B00BED26C /* PrefsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefsView.swift; sourceTree = "<group>"; };
+		28F7BBFF27097F65003C0E47 /* PrimaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,8 +156,10 @@
 			isa = PBXGroup;
 			children = (
 				28124A1525451FD70039CA20 /* SettingsView.swift */,
+				289AB1D22709A86B00BED26C /* PrefsView.swift */,
 				28124A232545227B0039CA20 /* DetailCard.swift */,
 				28124A28254525940039CA20 /* HeaderDetailCard.swift */,
+				28F7BBFF27097F65003C0E47 /* PrimaryCard.swift */,
 				2849B3D026455EC9002A92B6 /* SummaryCard.swift */,
 				2849B3CE26455B5D002A92B6 /* FuelList.swift */,
 			);
@@ -297,6 +303,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28F7BC0027097F65003C0E47 /* PrimaryCard.swift in Sources */,
+				289AB1D32709A86B00BED26C /* PrefsView.swift in Sources */,
 				28124A242545227B0039CA20 /* DetailCard.swift in Sources */,
 				2849B3CF26455B5D002A92B6 /* FuelList.swift in Sources */,
 				28124A29254525940039CA20 /* HeaderDetailCard.swift in Sources */,
@@ -391,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -446,7 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -466,7 +474,7 @@
 				DEVELOPMENT_TEAM = E4X6YMFEBV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Project Unleaded/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -488,7 +496,7 @@
 				DEVELOPMENT_TEAM = E4X6YMFEBV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Project Unleaded/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

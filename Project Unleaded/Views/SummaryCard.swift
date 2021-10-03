@@ -45,7 +45,7 @@ struct SummaryCard: View {
                     .frame(width: proxy.size.width, height: proxy.size.height / 3, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color( UIColor(red: 0.84, green: 0.15, blue: 0.24, alpha: 1.00))
                     )
-                    .cornerRadius(20).shadow(radius: 5 )
+                    .cornerRadius(20).shadow(radius: 2 )
                     
                 }
             } else {

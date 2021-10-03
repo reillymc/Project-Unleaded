@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PrefItem: Hashable, Codable, Identifiable {
     var id: String
+    var name: String
     var enabled: Bool
     var priority: Int
 }
@@ -22,7 +23,7 @@ struct SettingsView: View {
     
     @State var disabledStateList: [PrefItem] = []
     
-    @State var stateList: [PrefItem] = (UserDefaults.standard.array(forKey: "enabledData") ?? [PrefItem(id: "QLD", enabled: true, priority: 0), PrefItem(id: "NSW", enabled: true, priority: 0), PrefItem(id: "VIC", enabled: true, priority: 0), PrefItem(id: "WA", enabled: true, priority: 0)]) as! [PrefItem]
+    @State var stateList: [PrefItem] = (UserDefaults.standard.array(forKey: "enabledData") ?? [PrefItem(id: "QLD", name: "QLD", enabled: true, priority: 0), PrefItem(id: "NSW", name: "NSW", enabled: true, priority: 0), PrefItem(id: "VIC", name: "VIC", enabled: true, priority: 0), PrefItem(id: "WA", name: "WA", enabled: true, priority: 0)]) as! [PrefItem]
     
     
     
