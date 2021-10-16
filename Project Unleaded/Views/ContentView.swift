@@ -54,7 +54,7 @@ struct ContentView: View {
                                     Color.clear.frame(width: 20, height: 5)
                                 }
                             }
-                        }.padding(20)
+                        }.padding(config.listPadding)
                     }
                     Text(lastUpdated).foregroundColor(Color(UIColor(named: "Information")!))
                 }
@@ -81,7 +81,6 @@ struct ContentView: View {
                 )
                     .zIndex(3)
                     .transition(.modal)
-                    .padding(.bottom, 175) //140ish on traceys phone
             }
             
         }
@@ -100,7 +99,7 @@ struct ContentView: View {
         withAnimation(.heroTransition) {
             self.selectedPrice = nil
         }
-        prefs.primaryFuel = price.id
+        prefs.primaryFuel = price.id;
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
             withAnimation(.heroTransition) {

@@ -55,16 +55,16 @@ struct HeroCard: View {
                     Text(willRefresh ? "" : "\(price.suburb), \(price.postcode)").fontWeight(pct > 0.5 ? .bold : .regular)
                     
                 }
-            }.id(self.willRefresh.hashValue)
+            }
+                .id(self.willRefresh.hashValue)
                 .foregroundColor(.white)
                 .frame(width: width, height: height, alignment: .center)
                 .background(LinearGradient(gradient: Gradient(colors: willRefresh ? [Color(UIColor(named: "Secondary")!), Color(UIColor(named: "Primary")!)] : [Color(UIColor(named: "Primary")!), Color(UIColor(named: "Secondary")!)]), startPoint: .topLeading, endPoint: .bottomTrailing))
         )
             .frame(width: width, height: height)
             .clipShape(RoundedRectangle(cornerRadius: radius))
-            .contentShape(RoundedRectangle(cornerRadius: radius))
             .shadow(radius: 8 * pct)
-            .offset(x: offset.width / 3, y: offset.height / 2)
+            .offset(x: offset.width / 3, y: (offset.height / 2) - (75 * pct)) //+ % of screen height
             .gesture(
                 DragGesture()
                     .onChanged { gesture in
@@ -75,7 +75,7 @@ struct HeroCard: View {
                             }
                         } else {
                             withAnimation(.contentTransition){
-                            self.willRefresh = false
+                                self.willRefresh = false
                             }
                         }
                     }
@@ -89,6 +89,10 @@ struct HeroCard: View {
                             self.offset = .zero
                         }}
             )
+            
+            //.padding(.bottom, 175) //140ish on traceys phone
+            
+
     }
 }
 

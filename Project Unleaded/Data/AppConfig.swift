@@ -11,6 +11,7 @@ public struct AppConfig {
     
     /// Card list spacing
     var listSpacing: CGFloat = 20
+    var listPadding: CGFloat = 20
     
     /// Detail card
     var detailCardSize: CGSize = CGSize(width: 210, height: 150) //240ish on traceys phone
@@ -27,6 +28,7 @@ public struct AppConfig {
     /// The default configuration for landscape layouts
     public static let landscape = AppConfig(
         listSpacing: 30,
+        listPadding: 0,
         detailCardSize: CGSize(width: 280, height: 100),
         detailCardRadius: 20,
         heroCardSize: CGSize(width: 400, height: 200),
@@ -35,8 +37,9 @@ public struct AppConfig {
 
     init() {}
     
-    init(listSpacing: CGFloat, detailCardSize: CGSize,  detailCardRadius: CGFloat, heroCardSize: CGSize, heroCardRadius: CGFloat) {
+    init(listSpacing: CGFloat, listPadding: CGFloat, detailCardSize: CGSize,  detailCardRadius: CGFloat, heroCardSize: CGSize, heroCardRadius: CGFloat) {
         self.listSpacing = listSpacing
+        self.listPadding = listPadding
         self.detailCardSize = detailCardSize
         self.detailCardRadius = detailCardRadius
         self.heroCardSize = heroCardSize
