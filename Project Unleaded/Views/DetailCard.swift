@@ -7,32 +7,34 @@
 
 import SwiftUI
 
+/// This view shows a picture, that may be zoomed and cropped (insetted)
 struct DetailCard: View {
+    @Environment(\.appConfig) var config: AppConfig
+    
     let price: Price
     var hidden: Bool
     
     var body: some View {
-        VStack(spacing: 10){
-            //  Image(systemName: "car.fill").font(.largeTitle).padding(5)
-            HStack{
-                Image(systemName: "drop.fill").font(.footnote)
-                Text("\(price.type)")
+        Color.clear.overlay(
+            VStack {
+                HStack{
+                    Image(systemName: "drop.fill").font(.footnote)
+                    Text("\(price.type)")
+                }
+                Text("\(price.price, specifier: "%.1f¢")").font(.system(size: 30)).fontWeight(.bold).frame(width: config.detailCardSize.width)
+                HStack{
+                    Image(systemName: "location.fill").font(.footnote)
+                    Text("\(price.suburb), \(price.postcode)")
+                    
+                }
             }
-            Text("\(price.price, specifier: "%.1f¢")").font(.title).fontWeight(.bold)
-            HStack{
-                Image(systemName: "location.fill").font(.footnote)
-                Text("\(price.suburb), \(price.postcode)")
-                
-            }
-        }
-        .frame(width: hidden ? 0 : 240, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-        .background(LinearGradient(gradient: Gradient(colors: [Color(UIColor(named: "Primary")!), Color(UIColor(named: "Secondary")!)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-        .cornerRadius(20)
-        .shadow(radius: 5 )
-        .padding(.all, 10)
-        .foregroundColor(.white)
+        )
+            .foregroundColor(.white)
+            .background(LinearGradient(gradient: Gradient(colors: [Color(UIColor(named: "Primary")!), Color(UIColor(named: "Secondary")!)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+            .clipShape(RoundedRectangle(cornerRadius: config.detailCardRadius))
+            .contentShape(RoundedRectangle(cornerRadius: config.detailCardRadius))
+            .frame(width: config.detailCardSize.width, height: config.detailCardSize.height )
     }
-    
 }
 
 struct DetailCard_Previews: PreviewProvider {
