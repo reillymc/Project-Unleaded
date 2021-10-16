@@ -36,63 +36,62 @@ struct HeroCard: View {
         let height = config.detailCardSize.height + (config.heroCardSize.height - config.detailCardSize.height) * pct
         let radius = config.detailCardRadius + (config.heroCardRadius - config.detailCardRadius) * pct
         
-        return Color.clear.overlay(
-            VStack(spacing: max(pct, 0.5) * 5){
-                Image(systemName: willRefresh ? "arrow.up.circle.fill" : "fuelpump.circle.fill")
-                    .font(.system(size: 60))
-                    .padding(.bottom, pct * 10)
-                    .scaleEffect(max(CGFloat.ulpOfOne, pct), anchor: .center)
-                    .frame(width: 60, height: 60 * pct, alignment: .center)
-                HStack{
-                    Image(systemName: willRefresh ? "" : "drop.fill").font(.footnote)
-                    Text(willRefresh ? "" : "\(price.type)").fontWeight(pct > 0.5 ? .bold : .regular)
-                }
-                Text(willRefresh ? "Refresh" : "\(price.price, specifier: "%.1f¢ ")")
-                    .font(.system(size: 60)).fontWeight(.bold).scaleEffect(max(pct, 0.5), anchor: .center)
-                    .frame(width: width, height: 60 * max(pct, 0.5), alignment: .center)
-                HStack{
-                    Image(systemName: willRefresh ? "" : "location.fill").font(.footnote)
-                    Text(willRefresh ? "" : "\(price.suburb), \(price.postcode)").fontWeight(pct > 0.5 ? .bold : .regular)
-                    
-                }
-            }
-                .id(self.willRefresh.hashValue)
-                .foregroundColor(.white)
-                .frame(width: width, height: height, alignment: .center)
-                .background(LinearGradient(gradient: Gradient(colors: willRefresh ? [Color(UIColor(named: "Secondary")!), Color(UIColor(named: "Primary")!)] : [Color(UIColor(named: "Primary")!), Color(UIColor(named: "Secondary")!)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-        )
-            .frame(width: width, height: height)
-            .clipShape(RoundedRectangle(cornerRadius: radius))
-            .shadow(radius: 8 * pct)
-            .offset(x: offset.width / 3, y: (offset.height / 2) - (75 * pct)) //+ % of screen height
-            .gesture(
-                DragGesture()
-                    .onChanged { gesture in
-                        self.offset = gesture.translation
-                        if abs(self.offset.height) > 300 {
-                            withAnimation(.contentTransition){
-                                self.willRefresh = true
-                            }
-                        } else {
-                            withAnimation(.contentTransition){
-                                self.willRefresh = false
-                            }
-                        }
+        return GeometryReader { geometry in
+            Color.clear.overlay(
+                VStack(spacing: max(pct, 0.5) * 5){
+                    Image(systemName: willRefresh ? "arrow.up.circle.fill" : "fuelpump.circle.fill")
+                        .font(.system(size: 60))
+                        .padding(.bottom, pct * 10)
+                        .scaleEffect(max(CGFloat.ulpOfOne, pct), anchor: .center)
+                        .frame(width: 60, height: 60 * pct, alignment: .center)
+                    HStack{
+                        Image(systemName: willRefresh ? "" : "drop.fill").font(.footnote)
+                        Text(willRefresh ? "" : "\(price.type)").fontWeight(pct > 0.5 ? .bold : .regular)
                     }
+                    Text(willRefresh ? "Refresh" : "\(price.price, specifier: "%.1f¢ ")")
+                        .font(.system(size: 60)).fontWeight(.bold).scaleEffect(max(pct, 0.5), anchor: .center)
+                        .frame(width: width, height: 60 * max(pct, 0.5), alignment: .center)
+                    HStack{
+                        Image(systemName: willRefresh ? "" : "location.fill").font(.footnote)
+                        Text(willRefresh ? "" : "\(price.suburb), \(price.postcode)").fontWeight(pct > 0.5 ? .bold : .regular)
+                        
+                    }
+                }
+                    .id(self.willRefresh.hashValue)
+                    .foregroundColor(.white)
+                    .frame(width: width, height: height, alignment: .center)
+                    .background(LinearGradient(gradient: Gradient(colors: willRefresh ? [Color(UIColor(named: "Secondary")!), Color(UIColor(named: "Primary")!)] : [Color(UIColor(named: "Primary")!), Color(UIColor(named: "Secondary")!)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .clipShape(RoundedRectangle(cornerRadius: radius))
                 
-                    .onEnded { _ in
-                        if abs(self.offset.height) > 300 {
-                            refresh?()
-                        }
-                        self.willRefresh = false
-                        withAnimation(.rotateTransition){
-                            self.offset = .zero
-                        }}
             )
-            
-            //.padding(.bottom, 175) //140ish on traceys phone
-            
-
+                .shadow(radius: 8 * pct)
+                .offset(x: offset.width / 3, y: (offset.height / 2) - (geometry.size.height * 0.1 * pct))
+                .gesture(
+                    DragGesture()
+                        .onChanged { gesture in
+                            self.offset = gesture.translation
+                            if abs(self.offset.height) > 300 {
+                                withAnimation(.contentTransition){
+                                    self.willRefresh = true
+                                }
+                            } else {
+                                withAnimation(.contentTransition){
+                                    self.willRefresh = false
+                                }
+                            }
+                        }
+                    
+                        .onEnded { _ in
+                            if abs(self.offset.height) > 300 {
+                                refresh?()
+                            }
+                            self.willRefresh = false
+                            withAnimation(.rotateTransition){
+                                self.offset = .zero
+                            }}
+                )
+        }
+        
     }
 }
 
