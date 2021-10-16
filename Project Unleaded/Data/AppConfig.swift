@@ -17,8 +17,8 @@ public struct AppConfig {
     var detailCardSize: CGSize = CGSize(width: 210, height: 150) //240ish on traceys phone
     var detailCardRadius: CGFloat = 20
     
-    /// Hero card
-    var heroCardSize: CGSize = CGSize(width: 350, height: 350) //300ish on tracey
+    /// Hero card: size in pct of min(height | width)
+    var heroCardSize: CGSize = CGSize(width: 0.82, height: 0.82)
     var heroCardRadius: CGFloat = 175
 
     
@@ -31,7 +31,7 @@ public struct AppConfig {
         listPadding: 0,
         detailCardSize: CGSize(width: 280, height: 100),
         detailCardRadius: 20,
-        heroCardSize: CGSize(width: 400, height: 200),
+        heroCardSize: CGSize(width: 1, height: 0.5),
         heroCardRadius: 200)
     
 

@@ -30,13 +30,17 @@ struct HeroCard: View {
     }
     
     var body: some View {
-        
-        // Interpolate values from detail card to full hero card based on the transition percent, from detail (0) to hero (1)
-        let width = config.detailCardSize.width + (config.heroCardSize.width - config.detailCardSize.width) * pct
-        let height = config.detailCardSize.height + (config.heroCardSize.height - config.detailCardSize.height) * pct
-        let radius = config.detailCardRadius + (config.heroCardRadius - config.detailCardRadius) * pct
-        
-        return GeometryReader { geometry in
+        GeometryReader { geometry in
+            
+            // Interpolate values from detail card to full hero card based on the transition percent, from detail (0) to hero (1)
+            let baseWidth = min(geometry.size.width, geometry.size.height) * config.heroCardSize.width
+            let baseHeight = min(geometry.size.width, geometry.size.height) * config.heroCardSize.height
+            
+            
+            let width = config.detailCardSize.width + (baseWidth - config.detailCardSize.width) * pct
+            let height = config.detailCardSize.height + (baseHeight - config.detailCardSize.height) * pct
+            let radius = config.detailCardRadius + (config.heroCardRadius - config.detailCardRadius) * pct
+
             Color.clear.overlay(
                 VStack(spacing: max(pct, 0.5) * 5){
                     Image(systemName: willRefresh ? "arrow.up.circle.fill" : "fuelpump.circle.fill")
@@ -45,14 +49,14 @@ struct HeroCard: View {
                         .scaleEffect(max(CGFloat.ulpOfOne, pct), anchor: .center)
                         .frame(width: 60, height: 60 * pct, alignment: .center)
                     HStack{
-                        Image(systemName: willRefresh ? "" : "drop.fill").font(.footnote)
+                        if !willRefresh { Image(systemName: "drop.fill").font(.footnote) }
                         Text(willRefresh ? "" : "\(price.type)").fontWeight(pct > 0.5 ? .bold : .regular)
                     }
                     Text(willRefresh ? "Refresh" : "\(price.price, specifier: "%.1f¢ ")")
                         .font(.system(size: 60)).fontWeight(.bold).scaleEffect(max(pct, 0.5), anchor: .center)
                         .frame(width: width, height: 60 * max(pct, 0.5), alignment: .center)
                     HStack{
-                        Image(systemName: willRefresh ? "" : "location.fill").font(.footnote)
+                        if !willRefresh { Image(systemName: "location.fill").font(.footnote) }
                         Text(willRefresh ? "" : "\(price.suburb), \(price.postcode)").fontWeight(pct > 0.5 ? .bold : .regular)
                         
                     }
@@ -65,7 +69,7 @@ struct HeroCard: View {
                 
             )
                 .shadow(radius: 8 * pct)
-                .offset(x: offset.width / 3, y: (offset.height / 2) - (geometry.size.height * 0.1 * pct))
+                .offset(x: offset.width / 3, y: (offset.height / 2) - (geometry.size.height * 0.12 * pct))
                 .gesture(
                     DragGesture()
                         .onChanged { gesture in
