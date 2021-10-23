@@ -15,9 +15,11 @@ public struct AppPrefs {
     @AppStorage("LPG") var FuelLPG = false
     @AppStorage("DIESEL") var FuelDiesel = false
     
+    let userDefaults = UserDefaults(suiteName: "group.reillymc.com.projectunleaded.getbestfuelprice")
+    
     var primaryFuel: String {
-        get { return UserDefaults.standard.string(forKey: "PrimaryFuel") ?? "U91" }
-        set { UserDefaults.standard.set(newValue, forKey: "PrimaryFuel") }
+        get { return userDefaults?.string(forKey: "PrimaryFuel") ?? "U91" }
+        set { userDefaults?.set(newValue, forKey: "PrimaryFuel") }
     }
     
     /// The default configuration for app preferences
