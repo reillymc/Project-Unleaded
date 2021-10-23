@@ -142,7 +142,7 @@ struct ContentView: View {
     }
     
     func reload() async {
-        API().getData(dummy: true) { (priceList) in
+        API().getData(dummy: false) { (priceList) in
             let formatter = DateFormatter()
             formatter.timeStyle = .short
             self.lastUpdated = "Last updated at \(formatter.string(from: Date(timeIntervalSince1970: Double(priceList.updated))))"

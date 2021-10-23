@@ -22,6 +22,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSSiriUsageDescription</key>
+	<string>Access to Siri is requred to allow you to ask the cheapest fuel price via shortcuts.</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>CheapestFuelIntent</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		280A9197253C3CB200CCB2BE /* Project_UnleadedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A9196253C3CB200CCB2BE /* Project_UnleadedApp.swift */; };
 		280A919B253C3CB200CCB2BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 280A919A253C3CB200CCB2BE /* Assets.xcassets */; };
+		283F4AE427239EFE00E014A6 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283F4AE327239EFE00E014A6 /* Intents.framework */; };
+		283F4AE727239EFE00E014A6 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F4AE627239EFE00E014A6 /* IntentHandler.swift */; };
+		283F4AEF27239EFE00E014A6 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283F4AEE27239EFE00E014A6 /* IntentsUI.framework */; };
+		283F4AF227239EFE00E014A6 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F4AF127239EFE00E014A6 /* IntentViewController.swift */; };
+		283F4AF527239EFE00E014A6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283F4AF327239EFE00E014A6 /* MainInterface.storyboard */; };
+		283F4AF927239EFE00E014A6 /* ProjectUnleadedIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 283F4AED27239EFE00E014A6 /* ProjectUnleadedIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		283F4AFC27239EFE00E014A6 /* ProjectUnleadedIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 283F4AE127239EFE00E014A6 /* ProjectUnleadedIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		283F4B0527239F3800E014A6 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 283F4B0427239F3800E014A6 /* Intents.intentdefinition */; };
+		283F4B0627239F3800E014A6 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 283F4B0427239F3800E014A6 /* Intents.intentdefinition */; };
+		283F4B0727239F3800E014A6 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 283F4B0427239F3800E014A6 /* Intents.intentdefinition */; };
+		283F4B0A2723A5DA00E014A6 /* GetCheapestFuelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F4B092723A5DA00E014A6 /* GetCheapestFuelHandler.swift */; };
+		283F4B0B2723A5DA00E014A6 /* GetCheapestFuelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F4B092723A5DA00E014A6 /* GetCheapestFuelHandler.swift */; };
+		283F4B0C2723A5DA00E014A6 /* GetCheapestFuelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F4B092723A5DA00E014A6 /* GetCheapestFuelHandler.swift */; };
 		28D685002712A48200C319B6 /* PrefsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D684FF2712A48200C319B6 /* PrefsView.swift */; };
 		28D685012712A48200C319B6 /* DetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D684FD2712A48200C319B6 /* DetailCard.swift */; };
 		28D685022712A48200C319B6 /* HeroCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D684FC2712A48200C319B6 /* HeroCard.swift */; };
@@ -20,7 +33,40 @@
 		28D6850D2712A49D00C319B6 /* EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D6850A2712A49D00C319B6 /* EnvironmentValues.swift */; };
 		28D6851D2712A65400C319B6 /* dummyapi.json in Resources */ = {isa = PBXBuildFile; fileRef = 28D6851C2712A65400C319B6 /* dummyapi.json */; };
 		28D685212712B72100C319B6 /* AppPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D685202712B72100C319B6 /* AppPrefs.swift */; };
+		28EC3D09271EE3DF00DE7BB4 /* FuelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EC3D08271EE3DF00DE7BB4 /* FuelStore.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		283F4AF727239EFE00E014A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 280A918B253C3CB200CCB2BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 283F4AEC27239EFE00E014A6;
+			remoteInfo = ProjectUnleadedIntentUI;
+		};
+		283F4AFA27239EFE00E014A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 280A918B253C3CB200CCB2BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 283F4AE027239EFE00E014A6;
+			remoteInfo = ProjectUnleadedIntent;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		283F4AFD27239EFE00E014A6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				283F4AFC27239EFE00E014A6 /* ProjectUnleadedIntent.appex in Embed App Extensions */,
+				283F4AF927239EFE00E014A6 /* ProjectUnleadedIntentUI.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		280A9193253C3CB200CCB2BE /* Project Unleaded.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Unleaded.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +74,18 @@
 		280A919A253C3CB200CCB2BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		280A919F253C3CB200CCB2BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		281D46B327129FD200061B47 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		283F4AE127239EFE00E014A6 /* ProjectUnleadedIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ProjectUnleadedIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		283F4AE327239EFE00E014A6 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		283F4AE627239EFE00E014A6 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		283F4AE827239EFE00E014A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		283F4AED27239EFE00E014A6 /* ProjectUnleadedIntentUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ProjectUnleadedIntentUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		283F4AEE27239EFE00E014A6 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		283F4AF127239EFE00E014A6 /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		283F4AF427239EFE00E014A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		283F4AF627239EFE00E014A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		283F4B0427239F3800E014A6 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
+		283F4B0827239F7F00E014A6 /* ProjectUnleadedIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProjectUnleadedIntent.entitlements; sourceTree = "<group>"; };
+		283F4B092723A5DA00E014A6 /* GetCheapestFuelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCheapestFuelHandler.swift; sourceTree = "<group>"; };
 		28D684FC2712A48200C319B6 /* HeroCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCard.swift; sourceTree = "<group>"; };
 		28D684FD2712A48200C319B6 /* DetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCard.swift; sourceTree = "<group>"; };
 		28D684FE2712A48200C319B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +97,9 @@
 		28D6850A2712A49D00C319B6 /* EnvironmentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentValues.swift; sourceTree = "<group>"; };
 		28D6851C2712A65400C319B6 /* dummyapi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummyapi.json; sourceTree = "<group>"; };
 		28D685202712B72100C319B6 /* AppPrefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPrefs.swift; sourceTree = "<group>"; };
+		28EC3D06271EE23A00DE7BB4 /* Project Unleaded.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Project Unleaded.entitlements"; sourceTree = "<group>"; };
+		28EC3D07271EE23A00DE7BB4 /* Project Unleaded.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Project Unleaded.entitlements"; sourceTree = "<group>"; };
+		28EC3D08271EE3DF00DE7BB4 /* FuelStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,13 +110,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		283F4ADE27239EFE00E014A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				283F4AE427239EFE00E014A6 /* Intents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		283F4AEA27239EFE00E014A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				283F4AEF27239EFE00E014A6 /* IntentsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		280A918A253C3CB200CCB2BE = {
 			isa = PBXGroup;
 			children = (
+				283F4B0427239F3800E014A6 /* Intents.intentdefinition */,
 				280A9195253C3CB200CCB2BE /* Project Unleaded */,
+				283F4AE527239EFE00E014A6 /* ProjectUnleadedIntent */,
+				283F4AF027239EFE00E014A6 /* ProjectUnleadedIntentUI */,
+				283F4AE227239EFE00E014A6 /* Frameworks */,
 				280A9194253C3CB200CCB2BE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				280A9193253C3CB200CCB2BE /* Project Unleaded.app */,
+				283F4AE127239EFE00E014A6 /* ProjectUnleadedIntent.appex */,
+				283F4AED27239EFE00E014A6 /* ProjectUnleadedIntentUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,6 +154,8 @@
 		280A9195253C3CB200CCB2BE /* Project Unleaded */ = {
 			isa = PBXGroup;
 			children = (
+				28EC3D07271EE23A00DE7BB4 /* Project Unleaded.entitlements */,
+				28EC3D06271EE23A00DE7BB4 /* Project Unleaded.entitlements */,
 				28D6851F2712A89900C319B6 /* Extensions */,
 				28D6851E2712A83400C319B6 /* Views */,
 				28D6850F2712A4D900C319B6 /* Data */,
@@ -90,6 +175,36 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		283F4AE227239EFE00E014A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				283F4AE327239EFE00E014A6 /* Intents.framework */,
+				283F4AEE27239EFE00E014A6 /* IntentsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		283F4AE527239EFE00E014A6 /* ProjectUnleadedIntent */ = {
+			isa = PBXGroup;
+			children = (
+				283F4B0827239F7F00E014A6 /* ProjectUnleadedIntent.entitlements */,
+				283F4AE627239EFE00E014A6 /* IntentHandler.swift */,
+				283F4AE827239EFE00E014A6 /* Info.plist */,
+				283F4B092723A5DA00E014A6 /* GetCheapestFuelHandler.swift */,
+			);
+			path = ProjectUnleadedIntent;
+			sourceTree = "<group>";
+		};
+		283F4AF027239EFE00E014A6 /* ProjectUnleadedIntentUI */ = {
+			isa = PBXGroup;
+			children = (
+				283F4AF127239EFE00E014A6 /* IntentViewController.swift */,
+				283F4AF327239EFE00E014A6 /* MainInterface.storyboard */,
+				283F4AF627239EFE00E014A6 /* Info.plist */,
+			);
+			path = ProjectUnleadedIntentUI;
+			sourceTree = "<group>";
+		};
 		28D6850F2712A4D900C319B6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +212,7 @@
 				28D685042712A49700C319B6 /* AppConfig.swift */,
 				28D6851C2712A65400C319B6 /* dummyapi.json */,
 				28D685052712A49700C319B6 /* FuelData.swift */,
+				28EC3D08271EE3DF00DE7BB4 /* FuelStore.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -132,15 +248,52 @@
 				280A918F253C3CB200CCB2BE /* Sources */,
 				280A9190253C3CB200CCB2BE /* Frameworks */,
 				280A9191253C3CB200CCB2BE /* Resources */,
+				283F4AFD27239EFE00E014A6 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				283F4AF827239EFE00E014A6 /* PBXTargetDependency */,
+				283F4AFB27239EFE00E014A6 /* PBXTargetDependency */,
 			);
 			name = "Project Unleaded";
 			productName = "Project Unleaded";
 			productReference = 280A9193253C3CB200CCB2BE /* Project Unleaded.app */;
 			productType = "com.apple.product-type.application";
+		};
+		283F4AE027239EFE00E014A6 /* ProjectUnleadedIntent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 283F4B0327239EFE00E014A6 /* Build configuration list for PBXNativeTarget "ProjectUnleadedIntent" */;
+			buildPhases = (
+				283F4ADD27239EFE00E014A6 /* Sources */,
+				283F4ADE27239EFE00E014A6 /* Frameworks */,
+				283F4ADF27239EFE00E014A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ProjectUnleadedIntent;
+			productName = ProjectUnleadedIntent;
+			productReference = 283F4AE127239EFE00E014A6 /* ProjectUnleadedIntent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		283F4AEC27239EFE00E014A6 /* ProjectUnleadedIntentUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 283F4B0227239EFE00E014A6 /* Build configuration list for PBXNativeTarget "ProjectUnleadedIntentUI" */;
+			buildPhases = (
+				283F4AE927239EFE00E014A6 /* Sources */,
+				283F4AEA27239EFE00E014A6 /* Frameworks */,
+				283F4AEB27239EFE00E014A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ProjectUnleadedIntentUI;
+			productName = ProjectUnleadedIntentUI;
+			productReference = 283F4AED27239EFE00E014A6 /* ProjectUnleadedIntentUI.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -148,11 +301,17 @@
 		280A918B253C3CB200CCB2BE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					280A9192253C3CB200CCB2BE = {
 						CreatedOnToolsVersion = 12.0.1;
+					};
+					283F4AE027239EFE00E014A6 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					283F4AEC27239EFE00E014A6 = {
+						CreatedOnToolsVersion = 13.0;
 					};
 				};
 			};
@@ -170,6 +329,8 @@
 			projectRoot = "";
 			targets = (
 				280A9192253C3CB200CCB2BE /* Project Unleaded */,
+				283F4AE027239EFE00E014A6 /* ProjectUnleadedIntent */,
+				283F4AEC27239EFE00E014A6 /* ProjectUnleadedIntentUI */,
 			);
 		};
 /* End PBXProject section */
@@ -184,6 +345,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		283F4ADF27239EFE00E014A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		283F4AEB27239EFE00E014A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				283F4AF527239EFE00E014A6 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -193,6 +369,7 @@
 			files = (
 				28D685012712A48200C319B6 /* DetailCard.swift in Sources */,
 				28D685032712A48200C319B6 /* ContentView.swift in Sources */,
+				283F4B0A2723A5DA00E014A6 /* GetCheapestFuelHandler.swift in Sources */,
 				28D6850B2712A49D00C319B6 /* Transitions.swift in Sources */,
 				280A9197253C3CB200CCB2BE /* Project_UnleadedApp.swift in Sources */,
 				28D685062712A49700C319B6 /* FuelData.swift in Sources */,
@@ -202,10 +379,56 @@
 				28D685212712B72100C319B6 /* AppPrefs.swift in Sources */,
 				28D685002712A48200C319B6 /* PrefsView.swift in Sources */,
 				28D685072712A49700C319B6 /* AppConfig.swift in Sources */,
+				283F4B0527239F3800E014A6 /* Intents.intentdefinition in Sources */,
+				28EC3D09271EE3DF00DE7BB4 /* FuelStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		283F4ADD27239EFE00E014A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				283F4B0627239F3800E014A6 /* Intents.intentdefinition in Sources */,
+				283F4AE727239EFE00E014A6 /* IntentHandler.swift in Sources */,
+				283F4B0B2723A5DA00E014A6 /* GetCheapestFuelHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		283F4AE927239EFE00E014A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				283F4B0727239F3800E014A6 /* Intents.intentdefinition in Sources */,
+				283F4AF227239EFE00E014A6 /* IntentViewController.swift in Sources */,
+				283F4B0C2723A5DA00E014A6 /* GetCheapestFuelHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		283F4AF827239EFE00E014A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 283F4AEC27239EFE00E014A6 /* ProjectUnleadedIntentUI */;
+			targetProxy = 283F4AF727239EFE00E014A6 /* PBXContainerItemProxy */;
+		};
+		283F4AFB27239EFE00E014A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 283F4AE027239EFE00E014A6 /* ProjectUnleadedIntent */;
+			targetProxy = 283F4AFA27239EFE00E014A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		283F4AF327239EFE00E014A6 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				283F4AF427239EFE00E014A6 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		280A91B6253C3CB300CCB2BE /* Debug */ = {
@@ -327,8 +550,10 @@
 		280A91B9253C3CB300CCB2BE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Project Unleaded/Project Unleaded.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Project Unleaded/Preview Content\"";
 				DEVELOPMENT_TEAM = E4X6YMFEBV;
@@ -349,8 +574,10 @@
 		280A91BA253C3CB300CCB2BE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Project Unleaded/Project Unleaded.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Project Unleaded/Preview Content\"";
 				DEVELOPMENT_TEAM = E4X6YMFEBV;
@@ -363,6 +590,112 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "reillymc.Project-Unleaded";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		283F4AFE27239EFE00E014A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = ProjectUnleadedIntent/ProjectUnleadedIntent.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E4X6YMFEBV;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ProjectUnleadedIntent/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ProjectUnleadedIntent;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "reillymc.Project-Unleaded.ProjectUnleadedIntent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		283F4AFF27239EFE00E014A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = ProjectUnleadedIntent/ProjectUnleadedIntent.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E4X6YMFEBV;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ProjectUnleadedIntent/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ProjectUnleadedIntent;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "reillymc.Project-Unleaded.ProjectUnleadedIntent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		283F4B0027239EFE00E014A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E4X6YMFEBV;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ProjectUnleadedIntentUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ProjectUnleadedIntentUI;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "reillymc.Project-Unleaded.ProjectUnleadedIntentUI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		283F4B0127239EFE00E014A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E4X6YMFEBV;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ProjectUnleadedIntentUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ProjectUnleadedIntentUI;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "reillymc.Project-Unleaded.ProjectUnleadedIntentUI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -385,6 +718,24 @@
 			buildConfigurations = (
 				280A91B9253C3CB300CCB2BE /* Debug */,
 				280A91BA253C3CB300CCB2BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		283F4B0227239EFE00E014A6 /* Build configuration list for PBXNativeTarget "ProjectUnleadedIntentUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				283F4B0027239EFE00E014A6 /* Debug */,
+				283F4B0127239EFE00E014A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		283F4B0327239EFE00E014A6 /* Build configuration list for PBXNativeTarget "ProjectUnleadedIntent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				283F4AFE27239EFE00E014A6 /* Debug */,
+				283F4AFF27239EFE00E014A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

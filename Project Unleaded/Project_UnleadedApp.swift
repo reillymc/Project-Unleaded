@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import Intents
 
 @main
 struct Project_UnleadedApp: App {
+    
+    @Environment(\.scenePhase) private var scenePhase
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+        }
+        .onChange(of: scenePhase) { phase in
+            INPreferences.requestSiriAuthorization({status in
+                
+            })
         }
     }
 }
