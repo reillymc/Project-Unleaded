@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import MapKit
 
 struct HeroCard: View {
     
@@ -16,17 +17,27 @@ struct HeroCard: View {
     
     @State private var offset = CGSize.zero
     @State private var willRefresh = false
+    @State private var showMap = false
+    
+    @ObservedObject var mapViewModel: MapViewModel
     
     let price: Price
+    let priceList: [simplePrice]
     var refresh: (() -> Void)? = nil
     
-    init (price: Price, refresh: (() -> Void)?) {
+    init (price: Price, priceList: [simplePrice], mapViewModel: MapViewModel, refresh: (() -> Void)?) {
         self.price = price
         self.refresh = refresh
+        self.priceList = priceList
+        self.mapViewModel = mapViewModel
+        self.mapViewModel.coordinateRegion.center = CLLocationCoordinate2D(latitude: price.lat, longitude: price.lng)
     }
     
-    init (price: Price) {
+    init (price: Price, priceList: [simplePrice], mapViewModel: MapViewModel) {
         self.price = price
+        self.priceList = priceList
+        self.mapViewModel = mapViewModel
+        self.mapViewModel.coordinateRegion.center = CLLocationCoordinate2D(latitude: price.lat, longitude: price.lng)
     }
     
     var body: some View {
@@ -36,29 +47,49 @@ struct HeroCard: View {
             let baseWidth = min(geometry.size.width, geometry.size.height) * config.heroCardSize.width
             let baseHeight = min(geometry.size.width, geometry.size.height) * config.heroCardSize.height
             
-            
             let width = config.detailCardSize.width + (baseWidth - config.detailCardSize.width) * pct
             let height = config.detailCardSize.height + (baseHeight - config.detailCardSize.height) * pct
             let radius = config.detailCardRadius + (config.heroCardRadius - config.detailCardRadius) * pct
-
+            
             Color.clear.overlay(
-                VStack(spacing: max(pct, 0.5) * 5){
-                    Image(systemName: willRefresh ? "arrow.up.circle.fill" : "fuelpump.circle.fill")
-                        .font(.system(size: 60))
-                        .padding(.bottom, pct * 10)
-                        .scaleEffect(max(CGFloat.ulpOfOne, pct), anchor: .center)
-                        .frame(width: 60, height: 60 * pct, alignment: .center)
-                    HStack{
-                        if !willRefresh { Image(systemName: "drop.fill").font(.footnote) }
-                        Text(willRefresh ? "" : "\(price.type)").fontWeight(pct > 0.5 ? .bold : .regular)
+                ZStack {
+                    VStack(spacing: max(pct, 0.5) * 5){
+                        if (!showMap || pct != 1 || willRefresh){
+                            Image(systemName: willRefresh ? "arrow.up.circle.fill" : "fuelpump.circle.fill")
+                                .font(.system(size: 60))
+                                .padding(.bottom, pct * 10)
+                                .scaleEffect(max(CGFloat.ulpOfOne, pct), anchor: .center)
+                                .frame(width: 60, height: 60 * pct, alignment: .center)
+                            HStack{
+                                if !willRefresh { Image(systemName: "drop.fill").font(.footnote) }
+                                Text(willRefresh ? "" : "\(price.type)").fontWeight(pct > 0.5 ? .bold : .regular)
+                            }
+                            Text(willRefresh ? "Refresh" : "\(price.price, specifier: "%.1f¢ ")")
+                                .font(.system(size: 60)).fontWeight(.bold).scaleEffect(max(pct, 0.5), anchor: .center)
+                                .frame(width: width, height: 60 * max(pct, 0.5), alignment: .center)
+                            if !willRefresh {
+                                HStack(spacing: 5){
+                                    Image(systemName: "location.fill").font(.footnote)
+                                    Text("\(price.suburb),")
+                                        .fontWeight(pct > 0.5 ? .bold : .regular)
+                                        .padding(0)
+                                    if (pct > 0.5) {
+                                        Text(price.state)
+                                            .fontWeight(pct > 0.5 ? .bold : .regular)
+                                            .scaleEffect(max(CGFloat.ulpOfOne, pct), anchor: .center)
+                                            .padding(0)
+                                    }
+                                    Text(price.postcode)
+                                        .fontWeight(pct > 0.5 ? .bold : .regular)
+                                        .padding(0)
+                                }
+                                
+                            }
+                        }
                     }
-                    Text(willRefresh ? "Refresh" : "\(price.price, specifier: "%.1f¢ ")")
-                        .font(.system(size: 60)).fontWeight(.bold).scaleEffect(max(pct, 0.5), anchor: .center)
-                        .frame(width: width, height: 60 * max(pct, 0.5), alignment: .center)
-                    HStack{
-                        if !willRefresh { Image(systemName: "location.fill").font(.footnote) }
-                        Text(willRefresh ? "" : "\(price.suburb), \(price.postcode)").fontWeight(pct > 0.5 ? .bold : .regular)
-                        
+                    if (pct == 1){
+                        Map(coordinateRegion: $mapViewModel.coordinateRegion, interactionModes: .zoom)
+                            .hidden(!showMap || willRefresh)
                     }
                 }
                     .id(self.willRefresh.hashValue)
@@ -66,6 +97,9 @@ struct HeroCard: View {
                     .frame(width: width, height: height, alignment: .center)
                     .background(LinearGradient(gradient: Gradient(colors: willRefresh ? [Color(UIColor(named: "Secondary")!), Color(UIColor(named: "Primary")!)] : [Color(UIColor(named: "Primary")!), Color(UIColor(named: "Secondary")!)]), startPoint: .topLeading, endPoint: .bottomTrailing))
                     .clipShape(RoundedRectangle(cornerRadius: radius))
+                    .contextMenu {
+                        FuelPriceList.init(prices: priceList)
+                    }
                 
             )
                 .shadow(radius: 8 * pct)
@@ -94,6 +128,12 @@ struct HeroCard: View {
                                 self.offset = .zero
                             }}
                 )
+                .onTapGesture {
+                    withAnimation(.rotateTransition){
+                        showMap.toggle()
+                    }
+                }
+                
         }
         
     }
@@ -102,6 +142,16 @@ struct HeroCard: View {
 struct HeroCard_Previews: PreviewProvider {
     
     static var previews: some View {
-        HeroCard(price: Price(type: "U91", price: 133.3, name: "Waga-Waga", state: "QLD", postcode: "4282", suburb: "Oxenford", lat: -153.232, lng: 37.1923))
+        HeroCard(price: Price(type: "U91", price: 133.3, name: "Waga-Waga", state: "QLD", postcode: "4282", suburb: "Oxenford", lat: -153.232, lng: 37.1923), priceList: [], mapViewModel: MapViewModel())
+    }
+}
+
+class MapViewModel: ObservableObject {
+    @Published var coordinateRegion: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 25.2744, longitude: 133.7751), span: MKCoordinateSpan(latitudeDelta: 2.9, longitudeDelta: 2.9))
+}
+
+extension View {
+    func hidden(_ shouldHide: Bool) -> some View {
+        opacity(shouldHide ? 0 : 1)
     }
 }

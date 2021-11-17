@@ -20,8 +20,13 @@ struct ContentView: View {
     @State private var isPortrait: Bool?
     
     @State private var priceList: [Price] = []
+    @State private var regions: [Region] = []
     @State private var selectedPrice: Price? = nil
     @State private var lastUpdated: String = "loading..."
+    @State private var lastUpdatedDate: Int = 0
+    
+    @State var currentDate = Date()
+    let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     
     // TODO: move to AppPrefs
     @AppStorage("U91") var FuelU91 = true
@@ -38,6 +43,9 @@ struct ContentView: View {
     }
     
     var body: some View {
+        
+        _ = Timer.scheduledTimer(withTimeInterval: 960, repeats: true){ tempTimer in heroCardDrag() }
+        
         return ZStack {
             NavigationView {
                 VStack{
@@ -46,7 +54,7 @@ struct ContentView: View {
                         HStack(alignment: .center, spacing: self.config.listSpacing) {
                             ForEach(filterPrices(prices: priceList)) { item in
                                 if item.id != self.selectedPrice?.id {
-                                    DetailCard(price: item, hidden: false)
+                                    DetailCard(price: item, priceList: filterRegions(fuelType: item.type), hidden: false)
                                         .onTapGesture { tapDetailCard(item) }
                                         .matchedGeometryEffect(id: item.id, in: nspace, properties: .frame)
                                         .transition(.invisible)
@@ -56,7 +64,14 @@ struct ContentView: View {
                             }
                         }.padding(config.listPadding)
                     }
-                    Text(lastUpdated).foregroundColor(Color(UIColor(named: "Information")!))
+                    Text(lastUpdated)
+                        .foregroundColor(Color(UIColor(named: "Information")!))
+                        .onReceive(timer) { input in
+                            if self.lastUpdatedDate != 0 {
+                                let timeSinceUpdate = Int((Date().timeIntervalSince1970 - Double(self.lastUpdatedDate)) / 60)
+                                lastUpdated = "Last updated \(timeSinceUpdate) \(timeSinceUpdate == 1 ? "minute" : "minutes") ago"
+                            }
+                        }
                 }
                 .navigationTitle(Text("Your best price is..."))
                 .toolbar {
@@ -76,11 +91,12 @@ struct ContentView: View {
             
             if self.selectedPrice != nil {
                 Color.clear.overlay(
-                    HeroCard(price: self.selectedPrice!, refresh: heroCardDrag)
+                    HeroCard(price: self.selectedPrice!, priceList: filterRegions(fuelType: self.selectedPrice!.type), mapViewModel: MapViewModel(), refresh: heroCardDrag)
                         .matchedGeometryEffect(id: self.selectedPrice!.id, in: nspace, properties: .position)
                 )
                     .zIndex(3)
                     .transition(.modal)
+                
             }
             
         }
@@ -92,7 +108,6 @@ struct ContentView: View {
                 await reload()
             }
         }
-        
     }
     
     func tapDetailCard(_ price: Price) {
@@ -110,6 +125,7 @@ struct ContentView: View {
     
     func heroCardDrag() {
         self.lastUpdated = "Refreshing..."
+        self.lastUpdatedDate = 0
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
             Task {
@@ -143,10 +159,9 @@ struct ContentView: View {
     
     func reload() async {
         API().getData(dummy: false) { (priceList) in
-            let formatter = DateFormatter()
-            formatter.timeStyle = .short
-            self.lastUpdated = "Last updated at \(formatter.string(from: Date(timeIntervalSince1970: Double(priceList.updated))))"
+            self.lastUpdatedDate = priceList.updated
             self.priceList = priceList.regions.first(where: {$0.id == "Australia"})?.prices ?? []
+            self.regions = priceList.regions
             self.selectedPrice = self.priceList.first(where: {$0.id == prefs.primaryFuel})
         }
     }
@@ -172,7 +187,20 @@ struct ContentView: View {
         
         return prices.filter{enabledFuels.contains($0.id)}
     }
+    
+    func filterRegions(fuelType: String) -> [simplePrice] {
+        let acceptedRegions = ["QLD", "NSW", "VIC", "WA"]
+        let filteredRegions =  self.regions
+            .filter({acceptedRegions.contains($0.region)})
+            .compactMap({ $0.prices }).joined()
+            .sorted(by: {$0.price < $1.price})
+            .filter({$0.type == fuelType})
+            .map { price in simplePrice(id: price.state, price: price.price, state: price.state, postcode: price.postcode, suburb: price.suburb ) }
+        return filteredRegions
+    }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

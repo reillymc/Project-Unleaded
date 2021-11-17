@@ -9,19 +9,14 @@
 /* Begin PBXBuildFile section */
 		280A9197253C3CB200CCB2BE /* Project_UnleadedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A9196253C3CB200CCB2BE /* Project_UnleadedApp.swift */; };
 		280A919B253C3CB200CCB2BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 280A919A253C3CB200CCB2BE /* Assets.xcassets */; };
+		282EB6A32744FBB400041F32 /* FuelPriceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EB6A22744FBB400041F32 /* FuelPriceList.swift */; };
 		283F4AE427239EFE00E014A6 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283F4AE327239EFE00E014A6 /* Intents.framework */; };
 		283F4AE727239EFE00E014A6 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F4AE627239EFE00E014A6 /* IntentHandler.swift */; };
-		283F4AEF27239EFE00E014A6 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283F4AEE27239EFE00E014A6 /* IntentsUI.framework */; };
-		283F4AF227239EFE00E014A6 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F4AF127239EFE00E014A6 /* IntentViewController.swift */; };
-		283F4AF527239EFE00E014A6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283F4AF327239EFE00E014A6 /* MainInterface.storyboard */; };
-		283F4AF927239EFE00E014A6 /* ProjectUnleadedIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 283F4AED27239EFE00E014A6 /* ProjectUnleadedIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		283F4AFC27239EFE00E014A6 /* ProjectUnleadedIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 283F4AE127239EFE00E014A6 /* ProjectUnleadedIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		283F4B0527239F3800E014A6 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 283F4B0427239F3800E014A6 /* Intents.intentdefinition */; };
 		283F4B0627239F3800E014A6 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 283F4B0427239F3800E014A6 /* Intents.intentdefinition */; };
-		283F4B0727239F3800E014A6 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 283F4B0427239F3800E014A6 /* Intents.intentdefinition */; };
 		283F4B0A2723A5DA00E014A6 /* GetCheapestFuelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F4B092723A5DA00E014A6 /* GetCheapestFuelHandler.swift */; };
 		283F4B0B2723A5DA00E014A6 /* GetCheapestFuelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F4B092723A5DA00E014A6 /* GetCheapestFuelHandler.swift */; };
-		283F4B0C2723A5DA00E014A6 /* GetCheapestFuelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F4B092723A5DA00E014A6 /* GetCheapestFuelHandler.swift */; };
 		28D685002712A48200C319B6 /* PrefsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D684FF2712A48200C319B6 /* PrefsView.swift */; };
 		28D685012712A48200C319B6 /* DetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D684FD2712A48200C319B6 /* DetailCard.swift */; };
 		28D685022712A48200C319B6 /* HeroCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D684FC2712A48200C319B6 /* HeroCard.swift */; };
@@ -37,13 +32,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		283F4AF727239EFE00E014A6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 280A918B253C3CB200CCB2BE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 283F4AEC27239EFE00E014A6;
-			remoteInfo = ProjectUnleadedIntentUI;
-		};
 		283F4AFA27239EFE00E014A6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 280A918B253C3CB200CCB2BE /* Project object */;
@@ -61,7 +49,6 @@
 			dstSubfolderSpec = 13;
 			files = (
 				283F4AFC27239EFE00E014A6 /* ProjectUnleadedIntent.appex in Embed App Extensions */,
-				283F4AF927239EFE00E014A6 /* ProjectUnleadedIntentUI.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,11 +61,11 @@
 		280A919A253C3CB200CCB2BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		280A919F253C3CB200CCB2BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		281D46B327129FD200061B47 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		282EB6A22744FBB400041F32 /* FuelPriceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelPriceList.swift; sourceTree = "<group>"; };
 		283F4AE127239EFE00E014A6 /* ProjectUnleadedIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ProjectUnleadedIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		283F4AE327239EFE00E014A6 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		283F4AE627239EFE00E014A6 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		283F4AE827239EFE00E014A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		283F4AED27239EFE00E014A6 /* ProjectUnleadedIntentUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ProjectUnleadedIntentUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		283F4AEE27239EFE00E014A6 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		283F4AF127239EFE00E014A6 /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
 		283F4AF427239EFE00E014A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -118,14 +105,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		283F4AEA27239EFE00E014A6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				283F4AEF27239EFE00E014A6 /* IntentsUI.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -146,7 +125,6 @@
 			children = (
 				280A9193253C3CB200CCB2BE /* Project Unleaded.app */,
 				283F4AE127239EFE00E014A6 /* ProjectUnleadedIntent.appex */,
-				283F4AED27239EFE00E014A6 /* ProjectUnleadedIntentUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -224,6 +202,7 @@
 				28D684FD2712A48200C319B6 /* DetailCard.swift */,
 				28D684FF2712A48200C319B6 /* PrefsView.swift */,
 				28D684FC2712A48200C319B6 /* HeroCard.swift */,
+				282EB6A22744FBB400041F32 /* FuelPriceList.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -253,7 +232,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				283F4AF827239EFE00E014A6 /* PBXTargetDependency */,
 				283F4AFB27239EFE00E014A6 /* PBXTargetDependency */,
 			);
 			name = "Project Unleaded";
@@ -278,23 +256,6 @@
 			productReference = 283F4AE127239EFE00E014A6 /* ProjectUnleadedIntent.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		283F4AEC27239EFE00E014A6 /* ProjectUnleadedIntentUI */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 283F4B0227239EFE00E014A6 /* Build configuration list for PBXNativeTarget "ProjectUnleadedIntentUI" */;
-			buildPhases = (
-				283F4AE927239EFE00E014A6 /* Sources */,
-				283F4AEA27239EFE00E014A6 /* Frameworks */,
-				283F4AEB27239EFE00E014A6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ProjectUnleadedIntentUI;
-			productName = ProjectUnleadedIntentUI;
-			productReference = 283F4AED27239EFE00E014A6 /* ProjectUnleadedIntentUI.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -308,9 +269,6 @@
 						CreatedOnToolsVersion = 12.0.1;
 					};
 					283F4AE027239EFE00E014A6 = {
-						CreatedOnToolsVersion = 13.0;
-					};
-					283F4AEC27239EFE00E014A6 = {
 						CreatedOnToolsVersion = 13.0;
 					};
 				};
@@ -330,7 +288,6 @@
 			targets = (
 				280A9192253C3CB200CCB2BE /* Project Unleaded */,
 				283F4AE027239EFE00E014A6 /* ProjectUnleadedIntent */,
-				283F4AEC27239EFE00E014A6 /* ProjectUnleadedIntentUI */,
 			);
 		};
 /* End PBXProject section */
@@ -349,14 +306,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		283F4AEB27239EFE00E014A6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				283F4AF527239EFE00E014A6 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +329,7 @@
 				28D685002712A48200C319B6 /* PrefsView.swift in Sources */,
 				28D685072712A49700C319B6 /* AppConfig.swift in Sources */,
 				283F4B0527239F3800E014A6 /* Intents.intentdefinition in Sources */,
+				282EB6A32744FBB400041F32 /* FuelPriceList.swift in Sources */,
 				28EC3D09271EE3DF00DE7BB4 /* FuelStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,24 +344,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		283F4AE927239EFE00E014A6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				283F4B0727239F3800E014A6 /* Intents.intentdefinition in Sources */,
-				283F4AF227239EFE00E014A6 /* IntentViewController.swift in Sources */,
-				283F4B0C2723A5DA00E014A6 /* GetCheapestFuelHandler.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		283F4AF827239EFE00E014A6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 283F4AEC27239EFE00E014A6 /* ProjectUnleadedIntentUI */;
-			targetProxy = 283F4AF727239EFE00E014A6 /* PBXContainerItemProxy */;
-		};
 		283F4AFB27239EFE00E014A6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 283F4AE027239EFE00E014A6 /* ProjectUnleadedIntent */;
@@ -649,58 +584,6 @@
 			};
 			name = Release;
 		};
-		283F4B0027239EFE00E014A6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = E4X6YMFEBV;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ProjectUnleadedIntentUI/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ProjectUnleadedIntentUI;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "reillymc.Project-Unleaded.ProjectUnleadedIntentUI";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		283F4B0127239EFE00E014A6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = E4X6YMFEBV;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ProjectUnleadedIntentUI/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ProjectUnleadedIntentUI;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "reillymc.Project-Unleaded.ProjectUnleadedIntentUI";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -718,15 +601,6 @@
 			buildConfigurations = (
 				280A91B9253C3CB300CCB2BE /* Debug */,
 				280A91BA253C3CB300CCB2BE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		283F4B0227239EFE00E014A6 /* Build configuration list for PBXNativeTarget "ProjectUnleadedIntentUI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				283F4B0027239EFE00E014A6 /* Debug */,
-				283F4B0127239EFE00E014A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

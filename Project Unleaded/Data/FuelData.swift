@@ -37,12 +37,20 @@ extension Price: Identifiable {
     var id: String { return type }
 }
 
+struct simplePrice: Identifiable {
+    var id: String;
+    var price: Double;
+    var state: String;
+    var postcode: String
+    var suburb: String
+}
+
 enum RegionNames: CaseIterable, Hashable, Identifiable {
     case QLD
     case NSW
     case VIC
     case WA
-
+    
     var name: String {
         return "\(self)".map {
             $0.isUppercase ? " \($0)" : "\($0)" }.joined().capitalized
@@ -57,16 +65,13 @@ enum FuelNames: CaseIterable, Hashable, Identifiable {
     case E10
     case Diesel
     case LPG
-
+    
     var name: String {
         return "\(self)".map {
             $0.isUppercase ? " \($0)" : "\($0)" }.joined().capitalized
     }
     var id: FuelNames {self}
 }
-
-
-
 
 final class UserData: ObservableObject  {
     @Published var showFavoritesOnly = false
