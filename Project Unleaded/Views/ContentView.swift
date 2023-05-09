@@ -17,6 +17,7 @@ struct ContentView: View {
     @State private var landscapeConfig: AppConfig
     
     @State private var showPrefsSheet: Bool = false
+    @State private var showChartSheet: Bool = false
     @State private var isPortrait: Bool?
     
     @State private var priceList: [Price] = []
@@ -30,6 +31,7 @@ struct ContentView: View {
     
     // TODO: move to AppPrefs
     @AppStorage("U91") var FuelU91 = true
+    @AppStorage("U95") var FuelU95 = true
     @AppStorage("U98") var FuelU98 = true
     @AppStorage("E10") var FuelE10 = true
     @AppStorage("LPG") var FuelLPG = false
@@ -64,14 +66,25 @@ struct ContentView: View {
                             }
                         }.padding(config.listPadding)
                     }
-                    Text(lastUpdated)
-                        .foregroundColor(Color(UIColor(named: "Information")!))
-                        .onReceive(timer) { input in
-                            if self.lastUpdatedDate != 0 {
-                                let timeSinceUpdate = Int((Date().timeIntervalSince1970 - Double(self.lastUpdatedDate)) / 60)
-                                lastUpdated = "Last updated \(timeSinceUpdate) \(timeSinceUpdate == 1 ? "minute" : "minutes") ago"
+                    HStack{
+                        Button(action: {
+                            self.showChartSheet = true
+                        }, label: {
+                            Image(systemName: "chart.xyaxis.line").imageScale(.large).foregroundColor(Color(UIColor(named: "Primary")!))
+                        }).frame(alignment: .trailing)
+                            .sheet(isPresented: self.$showChartSheet, content: ChartView.init)
+                        Spacer()
+                        Text(lastUpdated)
+                            .foregroundColor(Color(UIColor(named: "Information")!))
+                            .onReceive(timer) { input in
+                                if self.lastUpdatedDate != 0 {
+                                    let timeSinceUpdate = Int((Date().timeIntervalSince1970 - Double(self.lastUpdatedDate)) / 60)
+                                    lastUpdated = "Last updated \(timeSinceUpdate) \(timeSinceUpdate == 1 ? "minute" : "minutes") ago"
+                                }
                             }
-                        }
+                        
+                    }.padding(.horizontal, 40)
+                    
                 }
                 .navigationTitle(Text("Your best price is..."))
                 .toolbar {
@@ -171,6 +184,9 @@ struct ContentView: View {
         
         if (FuelU91 == true) {
             enabledFuels.append("U91")
+        }
+        if (FuelU95 == true) {
+            enabledFuels.append("U95")
         }
         if (FuelU98 == true) {
             enabledFuels.append("U98")

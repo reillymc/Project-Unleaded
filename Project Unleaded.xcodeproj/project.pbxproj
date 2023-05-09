@@ -29,6 +29,8 @@
 		28D6851D2712A65400C319B6 /* dummyapi.json in Resources */ = {isa = PBXBuildFile; fileRef = 28D6851C2712A65400C319B6 /* dummyapi.json */; };
 		28D685212712B72100C319B6 /* AppPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D685202712B72100C319B6 /* AppPrefs.swift */; };
 		28EC3D09271EE3DF00DE7BB4 /* FuelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EC3D08271EE3DF00DE7BB4 /* FuelStore.swift */; };
+		B4BD67762A07330400B91D23 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD67752A07330400B91D23 /* ChartView.swift */; };
+		B4BD67782A07342000B91D23 /* PriceHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD67772A07342000B91D23 /* PriceHistory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		28EC3D06271EE23A00DE7BB4 /* Project Unleaded.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Project Unleaded.entitlements"; sourceTree = "<group>"; };
 		28EC3D07271EE23A00DE7BB4 /* Project Unleaded.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Project Unleaded.entitlements"; sourceTree = "<group>"; };
 		28EC3D08271EE3DF00DE7BB4 /* FuelStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelStore.swift; sourceTree = "<group>"; };
+		B4BD67752A07330400B91D23 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		B4BD67772A07342000B91D23 /* PriceHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceHistory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 				28D6851C2712A65400C319B6 /* dummyapi.json */,
 				28D685052712A49700C319B6 /* FuelData.swift */,
 				28EC3D08271EE3DF00DE7BB4 /* FuelStore.swift */,
+				B4BD67772A07342000B91D23 /* PriceHistory.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				28D684FF2712A48200C319B6 /* PrefsView.swift */,
 				28D684FC2712A48200C319B6 /* HeroCard.swift */,
 				282EB6A22744FBB400041F32 /* FuelPriceList.swift */,
+				B4BD67752A07330400B91D23 /* ChartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,11 +324,13 @@
 			files = (
 				28D685012712A48200C319B6 /* DetailCard.swift in Sources */,
 				28D685032712A48200C319B6 /* ContentView.swift in Sources */,
+				B4BD67782A07342000B91D23 /* PriceHistory.swift in Sources */,
 				283F4B0A2723A5DA00E014A6 /* GetCheapestFuelHandler.swift in Sources */,
 				28D6850B2712A49D00C319B6 /* Transitions.swift in Sources */,
 				280A9197253C3CB200CCB2BE /* Project_UnleadedApp.swift in Sources */,
 				28D685062712A49700C319B6 /* FuelData.swift in Sources */,
 				28D6850D2712A49D00C319B6 /* EnvironmentValues.swift in Sources */,
+				B4BD67762A07330400B91D23 /* ChartView.swift in Sources */,
 				28D6850C2712A49D00C319B6 /* Animations.swift in Sources */,
 				28D685022712A48200C319B6 /* HeroCard.swift in Sources */,
 				28D685212712B72100C319B6 /* AppPrefs.swift in Sources */,
@@ -494,7 +502,7 @@
 				DEVELOPMENT_TEAM = E4X6YMFEBV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Project Unleaded/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -518,7 +526,7 @@
 				DEVELOPMENT_TEAM = E4X6YMFEBV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Project Unleaded/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

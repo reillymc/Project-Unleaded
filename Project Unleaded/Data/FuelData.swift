@@ -133,4 +133,15 @@ class API {
         return priceList
     }
     
+    func getHistory(completion: @escaping (PriceHistory) -> ()) {
+        guard let url = URL(string: "https://d2aoe31r2phkds.cloudfront.net/history.json") else { return }
+        URLSession.shared.dataTask(with: url) { (data, _, _) in
+            var priceList = try! JSONDecoder().decode(PriceHistory.self, from: data!)
+            DispatchQueue.main.async {
+                completion(priceList)
+            }
+        }
+        .resume()
+    }
+    
 }

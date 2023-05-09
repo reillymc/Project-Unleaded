@@ -10,6 +10,7 @@ import SwiftUI
 public struct AppPrefs {
     
     @AppStorage("U91") var FuelU91 = true
+    @AppStorage("U95") var FuelU95 = true
     @AppStorage("U98") var FuelU98 = true
     @AppStorage("E10") var FuelE10 = true
     @AppStorage("LPG") var FuelLPG = false
