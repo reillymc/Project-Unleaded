@@ -8,6 +8,37 @@
 import SwiftUI
 import Combine
 import MapKit
+import Foundation
+import CoreLocation
+import Combine
+
+class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+
+    let locationManager = CLLocationManager()
+    @Published var locationStatus: CLAuthorizationStatus?
+    @Published var lastLocation: CLLocation?
+
+    override init() {
+        super.init()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        locationStatus = status
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        lastLocation = location
+        print(#function, location)
+    }
+}
+
+let minimumDistance: Double = 12000 //m
 
 struct HeroCard: View {
     
@@ -21,6 +52,8 @@ struct HeroCard: View {
     
     @ObservedObject var mapViewModel: MapViewModel
     
+    @StateObject private var locationManager = LocationManager()
+
     let price: Price
     let priceList: [simplePrice]
     var refresh: (() -> Void)? = nil
@@ -31,6 +64,7 @@ struct HeroCard: View {
         self.priceList = priceList
         self.mapViewModel = mapViewModel
         self.mapViewModel.coordinateRegion.center = CLLocationCoordinate2D(latitude: price.lat, longitude: price.lng)
+        self.mapViewModel.coordinateLocation  = CLLocationCoordinate2D(latitude: price.lat, longitude: price.lng)
     }
     
     init (price: Price, priceList: [simplePrice], mapViewModel: MapViewModel) {
@@ -38,6 +72,7 @@ struct HeroCard: View {
         self.priceList = priceList
         self.mapViewModel = mapViewModel
         self.mapViewModel.coordinateRegion.center = CLLocationCoordinate2D(latitude: price.lat, longitude: price.lng)
+        self.mapViewModel.coordinateLocation  = CLLocationCoordinate2D(latitude: price.lat, longitude: price.lng)
     }
     
     var body: some View {
@@ -50,6 +85,8 @@ struct HeroCard: View {
             let width = config.detailCardSize.width + (baseWidth - config.detailCardSize.width) * pct
             let height = config.detailCardSize.height + (baseHeight - config.detailCardSize.height) * pct
             let radius = config.detailCardRadius + (config.heroCardRadius - config.detailCardRadius) * pct
+            
+            let distance = locationManager.lastLocation?.distance(from: CLLocation(latitude: price.lat, longitude: price.lng)) ?? minimumDistance
             
             Color.clear.overlay(
                 ZStack {
@@ -88,8 +125,28 @@ struct HeroCard: View {
                         }
                     }
                     if (pct == 1){
-                        Map(coordinateRegion: $mapViewModel.coordinateRegion, interactionModes: .zoom)
+                        Map(initialPosition: MapCameraPosition.region(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: price.lat, longitude: price.lng), span: MKCoordinateSpan(latitudeDelta: 0.22, longitudeDelta: 0.22)))) {
+                            Annotation("", coordinate: CLLocationCoordinate2D(latitude: price.lat, longitude: price.lng), anchor: .center) {
+                                ZStack {
+                                    Circle()
+                                        .foregroundStyle(.red.opacity(0.5))
+                                        .frame(width: 40, height: 40)
+                             
+                                    Image(systemName: distance > minimumDistance ? "car.front.waves.up" : "checkmark")
+                                        .symbolEffect(.variableColor)
+                                        .padding(8)
+                                        .foregroundStyle(.white)
+                                        .background(Color.red)
+                                        .clipShape(Circle())
+                                }
+                            }
+                            UserAnnotation()
+                        }
                             .hidden(!showMap || willRefresh)
+                            .onAppear {
+                                locationManager.locationManager.requestWhenInUseAuthorization()
+                            }
+                            .mapControlVisibility(.hidden)                            
                     }
                 }
                     .id(self.willRefresh.hashValue)
@@ -148,6 +205,7 @@ struct HeroCard_Previews: PreviewProvider {
 
 class MapViewModel: ObservableObject {
     @Published var coordinateRegion: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 25.2744, longitude: 133.7751), span: MKCoordinateSpan(latitudeDelta: 2.9, longitudeDelta: 2.9))
+    @Published var coordinateLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 25.2744, longitude: 133.7751)
 }
 
 extension View {

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,7 +12,7 @@
 		282EB6A32744FBB400041F32 /* FuelPriceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EB6A22744FBB400041F32 /* FuelPriceList.swift */; };
 		283F4AE427239EFE00E014A6 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283F4AE327239EFE00E014A6 /* Intents.framework */; };
 		283F4AE727239EFE00E014A6 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F4AE627239EFE00E014A6 /* IntentHandler.swift */; };
-		283F4AFC27239EFE00E014A6 /* ProjectUnleadedIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 283F4AE127239EFE00E014A6 /* ProjectUnleadedIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		283F4AFC27239EFE00E014A6 /* ProjectUnleadedIntent.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 283F4AE127239EFE00E014A6 /* ProjectUnleadedIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		283F4B0527239F3800E014A6 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 283F4B0427239F3800E014A6 /* Intents.intentdefinition */; };
 		283F4B0627239F3800E014A6 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 283F4B0427239F3800E014A6 /* Intents.intentdefinition */; };
 		283F4B0A2723A5DA00E014A6 /* GetCheapestFuelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F4B092723A5DA00E014A6 /* GetCheapestFuelHandler.swift */; };
@@ -29,6 +29,7 @@
 		28D6851D2712A65400C319B6 /* dummyapi.json in Resources */ = {isa = PBXBuildFile; fileRef = 28D6851C2712A65400C319B6 /* dummyapi.json */; };
 		28D685212712B72100C319B6 /* AppPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D685202712B72100C319B6 /* AppPrefs.swift */; };
 		28EC3D09271EE3DF00DE7BB4 /* FuelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EC3D08271EE3DF00DE7BB4 /* FuelStore.swift */; };
+		B47DF1D02AC938ED000AA6F4 /* ChartComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47DF1CF2AC938ED000AA6F4 /* ChartComponent.swift */; };
 		B4BD67762A07330400B91D23 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD67752A07330400B91D23 /* ChartView.swift */; };
 		B4BD67782A07342000B91D23 /* PriceHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD67772A07342000B91D23 /* PriceHistory.swift */; };
 /* End PBXBuildFile section */
@@ -44,15 +45,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		283F4AFD27239EFE00E014A6 /* Embed App Extensions */ = {
+		283F4AFD27239EFE00E014A6 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				283F4AFC27239EFE00E014A6 /* ProjectUnleadedIntent.appex in Embed App Extensions */,
+				283F4AFC27239EFE00E014A6 /* ProjectUnleadedIntent.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -89,6 +90,7 @@
 		28EC3D06271EE23A00DE7BB4 /* Project Unleaded.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Project Unleaded.entitlements"; sourceTree = "<group>"; };
 		28EC3D07271EE23A00DE7BB4 /* Project Unleaded.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Project Unleaded.entitlements"; sourceTree = "<group>"; };
 		28EC3D08271EE3DF00DE7BB4 /* FuelStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelStore.swift; sourceTree = "<group>"; };
+		B47DF1CF2AC938ED000AA6F4 /* ChartComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartComponent.swift; sourceTree = "<group>"; };
 		B4BD67752A07330400B91D23 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		B4BD67772A07342000B91D23 /* PriceHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceHistory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +211,7 @@
 				28D684FC2712A48200C319B6 /* HeroCard.swift */,
 				282EB6A22744FBB400041F32 /* FuelPriceList.swift */,
 				B4BD67752A07330400B91D23 /* ChartView.swift */,
+				B47DF1CF2AC938ED000AA6F4 /* ChartComponent.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,7 +236,7 @@
 				280A918F253C3CB200CCB2BE /* Sources */,
 				280A9190253C3CB200CCB2BE /* Frameworks */,
 				280A9191253C3CB200CCB2BE /* Resources */,
-				283F4AFD27239EFE00E014A6 /* Embed App Extensions */,
+				283F4AFD27239EFE00E014A6 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -268,8 +271,9 @@
 		280A918B253C3CB200CCB2BE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					280A9192253C3CB200CCB2BE = {
 						CreatedOnToolsVersion = 12.0.1;
@@ -334,6 +338,7 @@
 				28D6850C2712A49D00C319B6 /* Animations.swift in Sources */,
 				28D685022712A48200C319B6 /* HeroCard.swift in Sources */,
 				28D685212712B72100C319B6 /* AppPrefs.swift in Sources */,
+				B47DF1D02AC938ED000AA6F4 /* ChartComponent.swift in Sources */,
 				28D685002712A48200C319B6 /* PrefsView.swift in Sources */,
 				28D685072712A49700C319B6 /* AppConfig.swift in Sources */,
 				283F4B0527239F3800E014A6 /* Intents.intentdefinition in Sources */,
@@ -378,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -411,6 +417,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -425,7 +432,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -439,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -472,6 +480,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -480,7 +489,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -502,12 +511,13 @@
 				DEVELOPMENT_TEAM = E4X6YMFEBV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Project Unleaded/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "reillymc.Project-Unleaded";
+				PRODUCT_BUNDLE_IDENTIFIER = reillymc.fuelbubble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -526,12 +536,13 @@
 				DEVELOPMENT_TEAM = E4X6YMFEBV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Project Unleaded/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "reillymc.Project-Unleaded";
+				PRODUCT_BUNDLE_IDENTIFIER = reillymc.fuelbubble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -556,7 +567,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "reillymc.Project-Unleaded.ProjectUnleadedIntent";
+				PRODUCT_BUNDLE_IDENTIFIER = reillymc.fuelbubble.fuelbubbleIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -583,7 +594,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "reillymc.Project-Unleaded.ProjectUnleadedIntent";
+				PRODUCT_BUNDLE_IDENTIFIER = reillymc.fuelbubble.fuelbubbleIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

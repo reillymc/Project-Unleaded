@@ -33,20 +33,9 @@ struct PrefsView: View {
                     Toggle("Diesel", isOn: prefs.$FuelDiesel)
                         .toggleStyle(SwitchToggleStyle(tint: Color(UIColor(named: "Primary")!)))
                 }
-                Section(header: Text("Guide"), footer: Text("Ensure each step is followed in order.")){
-                    Text("1.  Ensure 7-Eleven app is closed")
-                    Text("2.  Plug phone into computer")
-                    Text("3.  Launch location faker")
-                    Text("4.  Set location to cheapest fuel found")
-                    Text("5.  Click start faking location")
-                    Text("6.  Open 7-Eleven app and lock in price")
-                    Text("7.  Quit 7-Eleven app")
-                    Text("8.  Click stop faking location")
-                    Text("9.  Unplug phone")
-                }
             }
             .navigationBarTitle(Text("Preferences"), displayMode: .inline)
-            .navigationBarItems(trailing: Button("Dismiss") {
+            .navigationBarItems(trailing: Button("Done") {
                 presentationMode.wrappedValue.dismiss()
             })
         }.accentColor(Color(UIColor(named: "Primary")!))
