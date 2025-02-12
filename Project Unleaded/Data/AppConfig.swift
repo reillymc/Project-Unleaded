@@ -14,7 +14,7 @@ public struct AppConfig {
     var listPadding: CGFloat = 20
     
     /// Detail card
-    var detailCardSize: CGSize = CGSize(width: 210, height: 150) //240ish on traceys phone
+    var detailCardSize: CGSize = CGSize(width: 210, height: 150)
     var detailCardRadius: CGFloat = 20
     
     /// Hero card: size in pct of min(height | width)
@@ -34,7 +34,6 @@ public struct AppConfig {
         heroCardSize: CGSize(width: 1, height: 0.5),
         heroCardRadius: 200)
     
-
     init() {}
     
     init(listSpacing: CGFloat, listPadding: CGFloat, detailCardSize: CGSize,  detailCardRadius: CGFloat, heroCardSize: CGSize, heroCardRadius: CGFloat) {

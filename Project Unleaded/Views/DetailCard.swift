@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-/// This view shows a picture, that may be zoomed and cropped (insetted)
 struct DetailCard: View {
     @Environment(\.appConfig) var config: AppConfig
     
@@ -38,6 +37,7 @@ struct DetailCard: View {
             .background(LinearGradient(gradient: Gradient(colors: [Color(UIColor(named: "Primary")!), Color(UIColor(named: "Secondary")!)]), startPoint: .topLeading, endPoint: .bottomTrailing))
             .clipShape(RoundedRectangle(cornerRadius: config.detailCardRadius))
             .contentShape(RoundedRectangle(cornerRadius: config.detailCardRadius))
+            .contentShape(.contextMenuPreview, RoundedRectangle(cornerRadius: config.detailCardRadius))
             .frame(width: config.detailCardSize.width, height: config.detailCardSize.height )
             .contextMenu {
                 FuelPriceList.init(prices: priceList)

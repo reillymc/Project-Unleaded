@@ -8,6 +8,9 @@
 import SwiftUI
 import Combine
 
+var realtimeApiUrl = "https://projectzerothree.info/api.php?format=json"
+var historyApiUrl = "https://d2aoe31r2phkds.cloudfront.net/history"
+
 struct FuelData: Codable {
     var updated: Int
     var regions: [Region]
@@ -80,11 +83,12 @@ final class UserData: ObservableObject  {
 }
 
 
+
 class API {
     func getData(dummy: Bool, completion: @escaping (FuelData) -> ()) {
         if (!dummy){
             
-            guard let url = URL(string: "https://projectzerothree.info/api.php?format=json") else { return }
+            guard let url = URL(string: realtimeApiUrl) else { return }
             URLSession.shared.dataTask(with: url) { (data, _, _) in
                 var priceList = try! JSONDecoder().decode(FuelData.self, from: data!)
                 let formattedList = self.formatPriceList(priceList: &priceList)
@@ -134,7 +138,7 @@ class API {
     }
     
     func getHistory(timeRange: String, completion: @escaping (PriceHistory) -> ()) {
-        guard let url = URL(string: "https://d2aoe31r2phkds.cloudfront.net/history\(timeRange).json") else { return }
+        guard let url = URL(string: "\(historyApiUrl)\(timeRange).json") else { return }
         URLSession.shared.dataTask(with: url) { (data, _, _) in
             let priceList = try! JSONDecoder().decode(PriceHistory.self, from: data!)
             DispatchQueue.main.async {

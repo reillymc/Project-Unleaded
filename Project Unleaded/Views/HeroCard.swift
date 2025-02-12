@@ -154,10 +154,10 @@ struct HeroCard: View {
                     .frame(width: width, height: height, alignment: .center)
                     .background(LinearGradient(gradient: Gradient(colors: willRefresh ? [Color(UIColor(named: "Secondary")!), Color(UIColor(named: "Primary")!)] : [Color(UIColor(named: "Primary")!), Color(UIColor(named: "Secondary")!)]), startPoint: .topLeading, endPoint: .bottomTrailing))
                     .clipShape(RoundedRectangle(cornerRadius: radius))
+                    .contentShape(.contextMenuPreview, RoundedRectangle(cornerRadius: radius))
                     .contextMenu {
                         FuelPriceList.init(prices: priceList)
                     }
-                
             )
                 .shadow(radius: 8 * pct)
                 .offset(x: offset.width / 3, y: (offset.height / 2) - (geometry.size.height * 0.12 * pct))
